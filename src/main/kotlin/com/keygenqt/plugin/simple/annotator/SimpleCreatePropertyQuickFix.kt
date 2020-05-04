@@ -13,7 +13,6 @@ import com.intellij.psi.*
 import com.intellij.psi.search.*
 import com.intellij.util.*
 import com.keygenqt.plugin.simple.file.*
-import org.intellij.sdk.language.psi.*
 
 internal class SimpleCreatePropertyQuickFix(private val key: String) : BaseIntentionAction() {
     override fun getText(): String {
@@ -29,17 +28,13 @@ internal class SimpleCreatePropertyQuickFix(private val key: String) : BaseInten
         return true
     }
 
-    @Throws(IncorrectOperationException::class) override fun invoke(
-        project: Project, editor: Editor,
-        file: PsiFile) {
+    @Throws(IncorrectOperationException::class) override fun invoke(project: Project, editor: Editor, file: PsiFile) {
         ApplicationManager.getApplication().invokeLater {
-            val virtualFiles =
-                FileTypeIndex.getFiles(SimpleFileType.INSTANCE, GlobalSearchScope.allScope(project))
-            if (virtualFiles.size == 1) {
+            val virtualFiles = FileTypeIndex.getFiles(SimpleFileType.INSTANCE, GlobalSearchScope.allScope(project))
+            if (virtualFiles.isNotEmpty()) {
                 createProperty(project, virtualFiles.iterator().next())
             } else {
-                val descriptor =
-                    FileChooserDescriptorFactory.createSingleFileDescriptor(SimpleFileType.INSTANCE)
+                val descriptor = FileChooserDescriptorFactory.createSingleFileDescriptor(SimpleFileType.INSTANCE)
                 descriptor.setRoots(project.guessProjectDir())
                 val file1 = FileChooser.chooseFile(descriptor, project, null)
                 file1?.let { createProperty(project, it) }
@@ -50,18 +45,14 @@ internal class SimpleCreatePropertyQuickFix(private val key: String) : BaseInten
     private fun createProperty(project: Project, file: VirtualFile) {
         WriteCommandAction.writeCommandAction(project).run<RuntimeException> {
             val simpleFile = PsiManager.getInstance(project).findFile(file) as SimpleFile?
-            val lastChildNode = simpleFile!!.node.lastChildNode
-            // TODO: Add another check for CRLF
-            if (lastChildNode != null /* && !lastChildNode.getElementType().equals(SimpleTypes.CRLF)*/) {
-                simpleFile.node.addChild(SimpleElementFactory.createCRLF(project).getNode())
+            simpleFile!!.node.lastChildNode?.let {
+                simpleFile.node.addChild(SimpleElementFactory.createCRLF(project).node)
             }
-            // IMPORTANT: change spaces to escaped spaces or the new node will only have the first word for the key
-            val property: SimpleProperty =
-                SimpleElementFactory.createProperty(project, key.replace(" ".toRegex(), "\\\\ "), "")
+            val property = SimpleElementFactory.createProperty(project, key.replace(" ".toRegex(), "\\\\ "), "")
             simpleFile.node.addChild(property.node)
             (property.lastChild.navigationElement as Navigatable).navigate(true)
-            FileEditorManager.getInstance(project).selectedTextEditor!!.caretModel
-                .moveCaretRelatively(2, 0, false, false, false)
+            FileEditorManager.getInstance(project).selectedTextEditor?.caretModel?.moveCaretRelatively(2, 0, false,
+                false, false)
         }
     }
 

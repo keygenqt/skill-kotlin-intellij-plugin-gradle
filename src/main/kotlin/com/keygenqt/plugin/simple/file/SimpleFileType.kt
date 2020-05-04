@@ -8,6 +8,7 @@ import javax.swing.Icon
 class SimpleFileType private constructor() : LanguageFileType(SimpleLanguage.INSTANCE) {
 
     companion object {
+        @JvmField
         val INSTANCE = SimpleFileType()
     }
 

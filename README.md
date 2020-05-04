@@ -18,5 +18,15 @@ Example plugin for intellij in kotlin + gradle
 7. [Annotator](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/annotator.html)
 8. [Line Marker Provider](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/line_marker_provider.html)
 9. [Completion Contributor](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/completion_contributor.html)
+10. [Reference Contributor](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/reference_contributor.html)
+11. [Find Usages Provider](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/find_usages_provider.html)
+12. [Folding Builder](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/folding_builder.html)
+13. [Go To Symbol Contributor](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/go_to_symbol_contributor.html)
+14. [Structure View Factory](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/structure_view_factory.html)
+15. [Formatter](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/formatter.html)
+16. [Code Style Settings](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/code_style_settings.html)
+17. [Commenter](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/commenter.html)
+18. [Quick Fix](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/quick_fix.html)
+
 
 ![picture](data/screenshot-28.png)

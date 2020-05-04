@@ -5,7 +5,7 @@ import com.intellij.openapi.editor.*
 import com.intellij.openapi.util.*
 import com.intellij.psi.*
 import com.keygenqt.plugin.simple.syntax.*
-import com.keygenqt.plugin.simple.util.SimpleUtil.findProperties
+import com.keygenqt.plugin.simple.util.SimpleUtil.Companion.findProperties
 
 class SimpleAnnotator : Annotator {
 

@@ -4,10 +4,15 @@ package org.intellij.sdk.language.psi;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
+import com.keygenqt.plugin.simple.contributor.SimpleNamedElement;
 
 public class SimpleVisitor extends PsiElementVisitor {
 
   public void visitProperty(@NotNull SimpleProperty o) {
+    visitNamedElement(o);
+  }
+
+  public void visitNamedElement(@NotNull SimpleNamedElement o) {
     visitPsiElement(o);
   }
 

@@ -6,7 +6,7 @@ import com.intellij.psi.*
 import com.intellij.psi.impl.source.tree.java.*
 import com.keygenqt.plugin.simple.annotator.*
 import com.keygenqt.plugin.simple.language.*
-import com.keygenqt.plugin.simple.util.SimpleUtil.findProperties
+import com.keygenqt.plugin.simple.util.SimpleUtil.Companion.findProperties
 
 class SimpleLineMarkerProvider : RelatedItemLineMarkerProvider() {
 

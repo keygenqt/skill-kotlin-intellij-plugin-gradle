@@ -66,4 +66,46 @@
                             implementationClass="com.keygenqt.plugin.simple.contributor.SimpleCompletionContributor"/>
   </extensions>
 
+  <extensions defaultExtensionNs="com.intellij">
+    <psi.referenceContributor implementation="com.keygenqt.plugin.simple.contributor.SimpleReferenceContributor"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.findUsagesProvider language="Simple"
+                             implementationClass="com.keygenqt.plugin.simple.provider.SimpleFindUsagesProvider"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.foldingBuilder language="JAVA"
+                         implementationClass="com.keygenqt.plugin.simple.folding.SimpleFoldingBuilder"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <gotoSymbolContributor
+        implementation="com.keygenqt.plugin.simple.contributor.SimpleChooseByNameContributor"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.psiStructureViewFactory language="Simple"
+                                  implementationClass="com.keygenqt.plugin.simple.structure.SimpleStructureViewFactory"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.formatter language="Simple"
+                    implementationClass="com.keygenqt.plugin.simple.formatting.SimpleFormattingModelBuilder"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <codeStyleSettingsProvider implementation="com.keygenqt.plugin.simple.style.SimpleCodeStyleSettingsProvider"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <langCodeStyleSettingsProvider
+        implementation="com.keygenqt.plugin.simple.style.SimpleLanguageCodeStyleSettingsProvider"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.commenter language="Simple" implementationClass="com.keygenqt.plugin.simple.commenter.SimpleCommenter"/>
+  </extensions>
+
 </idea-plugin>
