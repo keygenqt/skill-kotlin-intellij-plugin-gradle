@@ -1,11 +1,9 @@
-Kotlin Intellij Plugin Gradle
+Kotlin Intellij Plugin
 ===================
 
 Example plugin for intellij in kotlin + gradle
 
-#### Custom example:
-- ListenFile (open/close)
-- KotlinHelloAction (ToolBar menu)
+Implementation in the Kotlin language using the gradle "Custom Language Support Tutorial" to create custom language support. All files were overwritten to kotlin.
 
 #### [Custom Language Support Tutorial](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support_tutorial.html)
 
@@ -28,5 +26,8 @@ Example plugin for intellij in kotlin + gradle
 17. [Commenter](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/commenter.html)
 18. [Quick Fix](https://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support/quick_fix.html)
 
+#### Custom example:
+- ListenFile (open/close)
+- KotlinHelloAction (ToolBar menu)
 
 ![picture](data/screenshot-28.png)
