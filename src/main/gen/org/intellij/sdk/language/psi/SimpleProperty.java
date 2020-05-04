@@ -7,4 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface SimpleProperty extends PsiElement {
 
+  @Nullable
+  String getKey();
+
+  @Nullable
+  String getValue();
+
 }

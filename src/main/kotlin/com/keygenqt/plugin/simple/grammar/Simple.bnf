@@ -9,14 +9,14 @@
   psiImplPackage="org.intellij.sdk.language.psi.impl"
 
   elementTypeHolderClass="org.intellij.sdk.language.psi.SimpleTypes"
-  elementTypeClass="org.intellij.sdk.language.psi.SimpleElementType"
+  elementTypeClass="com.keygenqt.plugin.simple.grammar.SimpleTokenType"
   tokenTypeClass="org.intellij.sdk.language.psi.SimpleTokenType"
 
-  psiImplUtilClass="org.intellij.sdk.language.psi.impl.SimplePsiImplUtil"
+  psiImplUtilClass="com.keygenqt.plugin.simple.psi.SimplePsiImplUtil"
 }
 
 simpleFile ::= item_*
 
 private item_ ::= (property|COMMENT|CRLF)
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+property ::= (KEY? SEPARATOR VALUE?) | KEY {methods=[getKey getValue]}

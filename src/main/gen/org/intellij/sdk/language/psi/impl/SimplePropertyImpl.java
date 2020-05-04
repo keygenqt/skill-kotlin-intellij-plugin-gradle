@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static org.intellij.sdk.language.psi.SimpleTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.intellij.sdk.language.psi.*;
+import com.keygenqt.plugin.simple.psi.SimplePsiImplUtil;
 
 public class SimplePropertyImpl extends ASTWrapperPsiElement implements SimpleProperty {
 
@@ -24,6 +25,18 @@ public class SimplePropertyImpl extends ASTWrapperPsiElement implements SimplePr
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof SimpleVisitor) accept((SimpleVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @Nullable
+  public String getKey() {
+    return SimplePsiImplUtil.getKey(this);
+  }
+
+  @Override
+  @Nullable
+  public String getValue() {
+    return SimplePsiImplUtil.getValue(this);
   }
 
 }
